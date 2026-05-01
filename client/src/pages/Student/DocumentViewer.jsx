@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import api from "../../api/axios";
 import { useAuth } from "../../context/AuthContext";
 import { useAccessibility } from "../../context/AccessibilityContext";
+import SignLanguageAvatar from "../../components/SignLanguageAvatar";
+import { FaSignLanguage } from "react-icons/fa";
 
 const DocumentViewer = () => {
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const { speak } = useAccessibility();
+
+  // Sign Language Modal State
+  const [signText, setSignText] = useState(null);
+  const [isSigning, setIsSigning] = useState(false);
+  const [signingDocTitle, setSigningDocTitle] = useState("");
 
   useEffect(() => {
     const fetchDocuments = async () => {
@@ -22,6 +29,27 @@ const DocumentViewer = () => {
     };
     fetchDocuments();
   }, []);
+
+  const handleSignDocument = async (docUrl, docTitle) => {
+    setIsSigning(true);
+    setSigningDocTitle(docTitle);
+    setSignText(null);
+    try {
+      const response = await api.get(
+        `/documents/extract-text?url=${encodeURIComponent(docUrl)}`,
+        { responseType: "text" },
+      );
+      const text = response.data;
+      if (!text || (typeof text === 'string' && text.trim().length === 0)) {
+        setSignText("This document appears to contain no readable text. It might be an image-only PDF.");
+      } else {
+        setSignText(text);
+      }
+    } catch (e) {
+      console.error("Failed to extract content", e);
+      setSignText("Failed to read document. The text might be protected or not formatted correctly.");
+    }
+  };
 
   const handleReadDocument = async (docUrl) => {
     speak("Processing document text. Please wait...");
@@ -128,6 +156,17 @@ const DocumentViewer = () => {
                     TTS
                   </button>
                 )}
+
+                {user?.accessibilityType === "hearing-impaired" && (
+                  <button
+                    onClick={() => handleSignDocument(doc.fileUrl, doc.title)}
+                    className="flex-1 inline-flex justify-center items-center px-4 py-2.5 bg-indigo-600 dark:bg-gradient-to-r dark:from-indigo-600 dark:to-purple-500 text-white rounded-xl hover:opacity-90 shadow-md shadow-indigo-500/30 text-sm font-semibold transition-all"
+                    aria-label={`View sign language for ${doc.title}`}
+                  >
+                    <FaSignLanguage className="w-4 h-4 mr-2" />
+                    Sign Language
+                  </button>
+                )}
               </div>
               <div className="mt-4 text-xs font-medium text-gray-500 dark:text-gray-500 flex items-center justify-between">
                 <span className="truncate flex-1">
@@ -136,6 +175,37 @@ const DocumentViewer = () => {
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Sign Language Modal */}
+      {isSigning && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="relative w-full max-w-4xl bg-white dark:bg-[#1a1d2e] rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col max-h-[90vh]">
+            <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center bg-gray-50 dark:bg-[#0f1117]">
+              <h2 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <FaSignLanguage className="text-indigo-500" /> Sign Language: {signingDocTitle}
+              </h2>
+              <button
+                onClick={() => setIsSigning(false)}
+                className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="p-6 flex-1 overflow-y-auto">
+              {signText === null ? (
+                <div className="flex flex-col items-center justify-center py-12 text-gray-500 dark:text-gray-400">
+                  <div className="animate-spin rounded-full h-12 w-12 border-4 border-indigo-500 border-t-transparent mb-4"></div>
+                  <p>Extracting text from document...</p>
+                </div>
+              ) : (
+                <div style={{ width: '100%', height: 400, background: '#0d0f18', borderRadius: 12, position: 'relative' }}>
+                  <SignLanguageAvatar text={signText} height="100%" />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
