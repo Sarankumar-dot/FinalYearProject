@@ -6,6 +6,26 @@ import { FaSearch, FaPlay, FaFilter } from 'react-icons/fa';
 const typeEmoji = { video: '🎬', audio: '🎵', pdf: '📄', image: '🖼️', text: '📝' };
 const typeColors = { video: '#818cf8', audio: '#22d3ee', pdf: '#fbbf24', image: '#f472b6', text: '#60a5fa' };
 
+function getThumbnailUrl(lesson) {
+  if (lesson.thumbnailUrl) return lesson.thumbnailUrl;
+  
+  if (lesson.type === 'video' && lesson.fileUrl) {
+    try {
+      const u = new URL(lesson.fileUrl);
+      let v = null;
+      if (u.hostname.includes('youtube.com')) {
+        v = u.searchParams.get('v');
+      } else if (u.hostname === 'youtu.be') {
+        v = u.pathname.substring(1);
+      }
+      if (v) return `https://img.youtube.com/vi/${v}/hqdefault.jpg`;
+    } catch (_) {}
+  }
+  
+  // Deterministic fallback image based on ID
+  return `https://picsum.photos/seed/${lesson._id}/400/225`;
+}
+
 export default function CourseBrowser() {
   const [lessons, setLessons] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -91,12 +111,25 @@ export default function CourseBrowser() {
               >
                 {/* Thumbnail */}
                 <div style={{
-                  height: 120, borderRadius: 8,
+                  height: 140, borderRadius: 8, position: 'relative', overflow: 'hidden',
                   background: `linear-gradient(135deg, ${typeColors[l.type] || '#818cf8'}33, ${typeColors[l.type] || '#818cf8'}11)`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '3rem',
                 }}>
-                  {typeEmoji[l.type] || '📝'}
+                  <img 
+                    src={getThumbnailUrl(l)} 
+                    alt={l.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
+                    display: 'none', alignItems: 'center', justifyContent: 'center',
+                    fontSize: '3rem', zIndex: 1
+                  }}>
+                    {typeEmoji[l.type] || '📝'}
+                  </div>
                 </div>
 
                 <div style={{ flex: 1 }}>
