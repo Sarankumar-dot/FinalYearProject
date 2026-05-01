@@ -1,0 +1,878 @@
+{
+  "quiz_1774796027469": {
+    "_id": "quiz_1774796027469",
+    "id": "quiz_1774796027469",
+    "title": "Quiz: Introduction to Photosynthesis",
+    "lessonId": "1774796027469",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "sq1",
+        "text": "What does a plant need from the sun to grow?",
+        "type": "multiple-choice",
+        "options": [
+          "Light",
+          "Dirt",
+          "Bugs",
+          "Rocks"
+        ],
+        "correctAnswer": "Light",
+        "points": 20
+      },
+      {
+        "_id": "sq2",
+        "text": "What do plants give us that helps us breathe?",
+        "type": "multiple-choice",
+        "options": [
+          "Carbon Dioxide",
+          "Water",
+          "Oxygen",
+          "Gold"
+        ],
+        "correctAnswer": "Oxygen",
+        "points": 20
+      },
+      {
+        "_id": "sq3",
+        "text": "What is the primary function of chlorophyll in a plant cell?",
+        "type": "multiple-choice",
+        "options": [
+          "To produce water",
+          "To absorb energy from light",
+          "To release nitrogen",
+          "To strengthen the roots"
+        ],
+        "correctAnswer": "To absorb energy from light",
+        "points": 20
+      },
+      {
+        "_id": "sq4",
+        "text": "True or False: The Calvin cycle in photosynthesis can continue indefinitely in complete darkness.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "False",
+        "points": 20
+      },
+      {
+        "_id": "sq5",
+        "text": "What are the core raw materials converted into glucose during photosynthesis?",
+        "type": "multiple-choice",
+        "options": [
+          "Nitrogen and Water",
+          "Carbon Dioxide and Water",
+          "Oxygen and Glucose",
+          "Hydrogen and ATP"
+        ],
+        "correctAnswer": "Carbon Dioxide and Water",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.900Z"
+  },
+  "quiz_1774796028995": {
+    "_id": "quiz_1774796028995",
+    "id": "quiz_1774796028995",
+    "title": "Quiz: The Water Cycle Explained",
+    "lessonId": "1774796028995",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "wc1",
+        "text": "What happens when rain falls from clouds?",
+        "type": "multiple-choice",
+        "options": [
+          "Evaporation",
+          "Condensation",
+          "Precipitation",
+          "Infiltration"
+        ],
+        "correctAnswer": "Precipitation",
+        "points": 20
+      },
+      {
+        "_id": "wc2",
+        "text": "Does the sun play a role in the water cycle?",
+        "type": "multiple-choice",
+        "options": [
+          "Yes",
+          "No",
+          "Only at night",
+          "Only in space"
+        ],
+        "correctAnswer": "Yes",
+        "points": 20
+      },
+      {
+        "_id": "wc3",
+        "text": "What is the specific thermal process driving evaporation across Earth's oceans?",
+        "type": "multiple-choice",
+        "options": [
+          "Solar radiation breaking hydrogen bonds",
+          "Geothermal vents heating water",
+          "Lunar gravitational pulls",
+          "Atmospheric air pressure drops"
+        ],
+        "correctAnswer": "Solar radiation breaking hydrogen bonds",
+        "points": 20
+      },
+      {
+        "_id": "wc4",
+        "text": "True or False: Aquifer recharge and groundwater flow are rapid phases of the water cycle.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "False",
+        "points": 20
+      },
+      {
+        "_id": "wc5",
+        "text": "Transpiration is water cycle activity involving what specific organism?",
+        "type": "multiple-choice",
+        "options": [
+          "Desert Camels",
+          "Marine Algae",
+          "Terrestrial Plants",
+          "Deep sea fish"
+        ],
+        "correctAnswer": "Terrestrial Plants",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.907Z"
+  },
+  "quiz_1774796029008": {
+    "_id": "quiz_1774796029008",
+    "id": "quiz_1774796029008",
+    "title": "Quiz: Newton's Three Laws of Motion",
+    "lessonId": "1774796029008",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "nm1",
+        "text": "If you push a ball, what will it do?",
+        "type": "multiple-choice",
+        "options": [
+          "It will roll in motion",
+          "It will disappear",
+          "It will fly up",
+          "Nothing"
+        ],
+        "correctAnswer": "It will roll in motion",
+        "points": 20
+      },
+      {
+        "_id": "nm2",
+        "text": "Is it harder to push a heavy rock or a light feather?",
+        "type": "multiple-choice",
+        "options": [
+          "A heavy rock",
+          "A light feather",
+          "They are the same",
+          "Neither"
+        ],
+        "correctAnswer": "A heavy rock",
+        "points": 20
+      },
+      {
+        "_id": "nm3",
+        "text": "What is the mathematical definition of Newton's Second Law?",
+        "type": "multiple-choice",
+        "options": [
+          "Force = mass + velocity",
+          "Force = mass × acceleration",
+          "Force = mass / acceleration",
+          "Energy = mass × speed of light squared"
+        ],
+        "correctAnswer": "Force = mass × acceleration",
+        "points": 20
+      },
+      {
+        "_id": "nm4",
+        "text": "True or False: According to the First Law, inertia is directly proportional to an object's mass.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "nm5",
+        "text": "When a rocket pushes gas downwards, the rocket goes upwards. Which law does this perfectly demonstrate?",
+        "type": "multiple-choice",
+        "options": [
+          "First Law",
+          "Second Law",
+          "Third Law (Action/Reaction)",
+          "Law of Gravitation"
+        ],
+        "correctAnswer": "Third Law (Action/Reaction)",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.908Z"
+  },
+  "quiz_1774796029018": {
+    "_id": "quiz_1774796029018",
+    "id": "quiz_1774796029018",
+    "title": "Quiz: Introduction to Algebra",
+    "lessonId": "1774796029018",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "ag1",
+        "text": "What does a letter (like 'X' or 'Y') stand for in algebra?",
+        "type": "multiple-choice",
+        "options": [
+          "An unknown number",
+          "A type of fruit",
+          "A color",
+          "A sound"
+        ],
+        "correctAnswer": "An unknown number",
+        "points": 20
+      },
+      {
+        "_id": "ag2",
+        "text": "If X + 1 = 3, what is X?",
+        "type": "multiple-choice",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correctAnswer": "2",
+        "points": 20
+      },
+      {
+        "_id": "ag3",
+        "text": "Solve for x: 3x - 7 = 20",
+        "type": "multiple-choice",
+        "options": [
+          "x = 7",
+          "x = 8",
+          "x = 9",
+          "x = 27"
+        ],
+        "correctAnswer": "x = 9",
+        "points": 20
+      },
+      {
+        "_id": "ag4",
+        "text": "True or False: In a quadratic equation like ax^2 + bx + c = 0, 'a' cannot equal zero.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "ag5",
+        "text": "Given the equation y = mx + b, what does 'm' represent?",
+        "type": "multiple-choice",
+        "options": [
+          "Y-intercept",
+          "Variable axis",
+          "Slope of the line",
+          "Dependent variable"
+        ],
+        "correctAnswer": "Slope of the line",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.908Z"
+  },
+  "quiz_child_lesson_1": {
+    "_id": "quiz_child_lesson_1",
+    "id": "quiz_child_lesson_1",
+    "title": "Quiz: Learn Colors for Kids",
+    "lessonId": "child_lesson_1",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "c1",
+        "text": "What color is a ripe strawberry?",
+        "type": "multiple-choice",
+        "options": [
+          "Red",
+          "Purple",
+          "Blue",
+          "Black"
+        ],
+        "correctAnswer": "Red",
+        "points": 20
+      },
+      {
+        "_id": "c2",
+        "text": "What color is the sun?",
+        "type": "multiple-choice",
+        "options": [
+          "Yellow",
+          "Pink",
+          "Green",
+          "Brown"
+        ],
+        "correctAnswer": "Yellow",
+        "points": 20
+      },
+      {
+        "_id": "c3",
+        "text": "What two primary colors mix together to create Green?",
+        "type": "multiple-choice",
+        "options": [
+          "Red and Blue",
+          "Blue and Yellow",
+          "Red and Yellow",
+          "White and Black"
+        ],
+        "correctAnswer": "Blue and Yellow",
+        "points": 20
+      },
+      {
+        "_id": "c4",
+        "text": "True or False: Magenta is considered one of the three subtractive primary colors in printing (CMYK).",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "c5",
+        "text": "White light is composed of what spectrum of colors?",
+        "type": "multiple-choice",
+        "options": [
+          "Only red and blue",
+          "All colors of the visible spectrum",
+          "No colors, it is a blank slate",
+          "Only ultraviolet colors"
+        ],
+        "correctAnswer": "All colors of the visible spectrum",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.908Z"
+  },
+  "quiz_child_lesson_2": {
+    "_id": "quiz_child_lesson_2",
+    "id": "quiz_child_lesson_2",
+    "title": "Quiz: Animals and Their Sounds",
+    "lessonId": "child_lesson_2",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "a1",
+        "text": "What sound does a cow make?",
+        "type": "multiple-choice",
+        "options": [
+          "Woof",
+          "Meow",
+          "Moo",
+          "Chirp"
+        ],
+        "correctAnswer": "Moo",
+        "points": 20
+      },
+      {
+        "_id": "a2",
+        "text": "Which animal lives underwater?",
+        "type": "multiple-choice",
+        "options": [
+          "Fish",
+          "Dog",
+          "Bird",
+          "Cat"
+        ],
+        "correctAnswer": "Fish",
+        "points": 20
+      },
+      {
+        "_id": "a3",
+        "text": "What is the biological classification for a bat, despite its ability to fly?",
+        "type": "multiple-choice",
+        "options": [
+          "Avian",
+          "Reptile",
+          "Mammal",
+          "Amphibian"
+        ],
+        "correctAnswer": "Mammal",
+        "points": 20
+      },
+      {
+        "_id": "a4",
+        "text": "True or False: A marsupial, like a kangaroo, carries its developing young inside a pouch.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "a5",
+        "text": "What cellular characteristic distinguishes animals from plants?",
+        "type": "multiple-choice",
+        "options": [
+          "Presence of a nucleus",
+          "Presence of mitochondria",
+          "Absence of a rigid cell wall",
+          "Capability of photosynthesis"
+        ],
+        "correctAnswer": "Absence of a rigid cell wall",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.908Z"
+  },
+  "quiz_child_lesson_3": {
+    "_id": "quiz_child_lesson_3",
+    "id": "quiz_child_lesson_3",
+    "title": "Quiz: Counting 1 to 5",
+    "lessonId": "child_lesson_3",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "ct1",
+        "text": "What number comes after three?",
+        "type": "multiple-choice",
+        "options": [
+          "Two",
+          "Four",
+          "Five",
+          "One"
+        ],
+        "correctAnswer": "Four",
+        "points": 20
+      },
+      {
+        "_id": "ct2",
+        "text": "How many fingers are typically on one hand?",
+        "type": "multiple-choice",
+        "options": [
+          "Five",
+          "Three",
+          "Ten",
+          "Two"
+        ],
+        "correctAnswer": "Five",
+        "points": 20
+      },
+      {
+        "_id": "ct3",
+        "text": "Mathematically, what is the factorial of 5 (5!)?",
+        "type": "multiple-choice",
+        "options": [
+          "25",
+          "10",
+          "120",
+          "50"
+        ],
+        "correctAnswer": "120",
+        "points": 20
+      },
+      {
+        "_id": "ct4",
+        "text": "True or False: The number 5 is the third prime number in mathematics.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "ct5",
+        "text": "What is the summation of integers sequentially from 1 to 5? (1+2+3+4+5)",
+        "type": "multiple-choice",
+        "options": [
+          "10",
+          "12",
+          "15",
+          "20"
+        ],
+        "correctAnswer": "15",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:14:59.908Z"
+  },
+  "quiz_child_lesson_4": {
+    "_id": "quiz_child_lesson_4",
+    "id": "quiz_child_lesson_4",
+    "title": "Quiz: The Solar System for Kids",
+    "lessonId": "child_lesson_4",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "s1",
+        "text": "What giant star is at the center of our solar system?",
+        "type": "multiple-choice",
+        "options": [
+          "The Moon",
+          "The Sun",
+          "Earth",
+          "Mars"
+        ],
+        "correctAnswer": "The Sun",
+        "points": 20
+      },
+      {
+        "_id": "s2",
+        "text": "What is the planet that we live on called?",
+        "type": "multiple-choice",
+        "options": [
+          "Venus",
+          "Mars",
+          "Earth",
+          "Jupiter"
+        ],
+        "correctAnswer": "Earth",
+        "points": 20
+      },
+      {
+        "_id": "s3",
+        "text": "Which planet revolves around the sun the fastest due to its short orbital path?",
+        "type": "multiple-choice",
+        "options": [
+          "Earth",
+          "Neptune",
+          "Mercury",
+          "Saturn"
+        ],
+        "correctAnswer": "Mercury",
+        "points": 20
+      },
+      {
+        "_id": "s4",
+        "text": "True or False: The gas giants in our outer solar system are primarily composed of hydrogen and helium.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "s5",
+        "text": "Jupiter's famous 'Great Red Spot' is a massive atmospheric phenomenon. What is it?",
+        "type": "multiple-choice",
+        "options": [
+          "A giant ocean of lava",
+          "An anticyclonic storm",
+          "A large crater impact",
+          "A mountain of ice"
+        ],
+        "correctAnswer": "An anticyclonic storm",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:31:02.211Z"
+  },
+  "quiz_child_lesson_5": {
+    "_id": "quiz_child_lesson_5",
+    "id": "quiz_child_lesson_5",
+    "title": "Quiz: The Seven Continents",
+    "lessonId": "child_lesson_5",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "gc1",
+        "text": "Is Africa a country or a continent?",
+        "type": "multiple-choice",
+        "options": [
+          "A continent",
+          "A city",
+          "A country",
+          "A lake"
+        ],
+        "correctAnswer": "A continent",
+        "points": 20
+      },
+      {
+        "_id": "gc2",
+        "text": "Which continent is known for being extremely cold and covered in ice?",
+        "type": "multiple-choice",
+        "options": [
+          "Australia",
+          "Antarctica",
+          "Europe",
+          "Asia"
+        ],
+        "correctAnswer": "Antarctica",
+        "points": 20
+      },
+      {
+        "_id": "gc3",
+        "text": "Tectonic plate theory suggests all modern continents were once joined in a supercontinent. What was its name?",
+        "type": "multiple-choice",
+        "options": [
+          "Gondwana",
+          "Laurasia",
+          "Pangaea",
+          "Atlantis"
+        ],
+        "correctAnswer": "Pangaea",
+        "points": 20
+      },
+      {
+        "_id": "gc4",
+        "text": "True or False: Asia is entirely situated within the Southern Hemisphere.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "False",
+        "points": 20
+      },
+      {
+        "_id": "gc5",
+        "text": "The massive geographical area connecting South America to North America acts as what type of landform?",
+        "type": "multiple-choice",
+        "options": [
+          "Archipelago",
+          "Isthmus",
+          "Peninsula",
+          "Fjord"
+        ],
+        "correctAnswer": "Isthmus",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:31:02.211Z"
+  },
+  "quiz_child_lesson_6": {
+    "_id": "quiz_child_lesson_6",
+    "id": "quiz_child_lesson_6",
+    "title": "Quiz: Phonics Song (A to Z)",
+    "lessonId": "child_lesson_6",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "ph1",
+        "text": "Which letter makes the 'buh' sound?",
+        "type": "multiple-choice",
+        "options": [
+          "C",
+          "B",
+          "Z",
+          "T"
+        ],
+        "correctAnswer": "B",
+        "points": 20
+      },
+      {
+        "_id": "ph2",
+        "text": "The word 'Apple' starts with what letter?",
+        "type": "multiple-choice",
+        "options": [
+          "A",
+          "E",
+          "I",
+          "U"
+        ],
+        "correctAnswer": "A",
+        "points": 20
+      },
+      {
+        "_id": "ph3",
+        "text": "What linguistic term describes two consonant letters that result in one unique sound, such as 'sh' or 'ch'?",
+        "type": "multiple-choice",
+        "options": [
+          "Diphthong",
+          "Consonant Digraph",
+          "Vowel blend",
+          "Syllable"
+        ],
+        "correctAnswer": "Consonant Digraph",
+        "points": 20
+      },
+      {
+        "_id": "ph4",
+        "text": "True or False: A diphthong refers to a sound formed by the combination of two vowels in a single syllable.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "ph5",
+        "text": "Which of these English phonemes relies strictly on the vocal cords vibrating, making it a 'voiced' consonant?",
+        "type": "multiple-choice",
+        "options": [
+          "/p/",
+          "/t/",
+          "/s/",
+          "/z/"
+        ],
+        "correctAnswer": "/z/",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:31:02.211Z"
+  },
+  "quiz_child_lesson_7": {
+    "_id": "quiz_child_lesson_7",
+    "id": "quiz_child_lesson_7",
+    "title": "Quiz: Learning Shapes",
+    "lessonId": "child_lesson_7",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "sh1",
+        "text": "How many sides does a triangle have?",
+        "type": "multiple-choice",
+        "options": [
+          "Two",
+          "Three",
+          "Four",
+          "Five"
+        ],
+        "correctAnswer": "Three",
+        "points": 20
+      },
+      {
+        "_id": "sh2",
+        "text": "Is a circle round or square?",
+        "type": "multiple-choice",
+        "options": [
+          "Round",
+          "Square",
+          "Neither",
+          "Both"
+        ],
+        "correctAnswer": "Round",
+        "points": 20
+      },
+      {
+        "_id": "sh3",
+        "text": "In planar geometry, what is the mathematical formula for the area of a circle?",
+        "type": "multiple-choice",
+        "options": [
+          "base × height",
+          "π × radius squared",
+          "2 × π × radius",
+          "length × width"
+        ],
+        "correctAnswer": "π × radius squared",
+        "points": 20
+      },
+      {
+        "_id": "sh4",
+        "text": "True or False: According to Euclidean geometry, the interior angles of any triangle always add up to exactly 180 degrees.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "sh5",
+        "text": "What 3D solid strictly features six perfectly square and equal faces?",
+        "type": "multiple-choice",
+        "options": [
+          "Sphere",
+          "Cylinder",
+          "Hexahedron (Cube)",
+          "Pyramid"
+        ],
+        "correctAnswer": "Hexahedron (Cube)",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:31:02.211Z"
+  },
+  "quiz_child_lesson_8": {
+    "_id": "quiz_child_lesson_8",
+    "id": "quiz_child_lesson_8",
+    "title": "Quiz: Ancient Egypt for Kids",
+    "lessonId": "child_lesson_8",
+    "teacherId": "1",
+    "questions": [
+      {
+        "_id": "ae1",
+        "text": "What giant triangle structures did the ancient Egyptians build?",
+        "type": "multiple-choice",
+        "options": [
+          "Skyscrapers",
+          "Pyramids",
+          "Igloos",
+          "Castles"
+        ],
+        "correctAnswer": "Pyramids",
+        "points": 20
+      },
+      {
+        "_id": "ae2",
+        "text": "What was a king of ancient Egypt called?",
+        "type": "multiple-choice",
+        "options": [
+          "Emperor",
+          "President",
+          "Pharaoh",
+          "Duke"
+        ],
+        "correctAnswer": "Pharaoh",
+        "points": 20
+      },
+      {
+        "_id": "ae3",
+        "text": "The discovery of what inscribed stone slab primarily allowed historians to finally decipher ancient Egyptian hieroglyphics?",
+        "type": "multiple-choice",
+        "options": [
+          "The Rosetta Stone",
+          "The Code of Hammurabi",
+          "The Dead Sea Scrolls",
+          "The Emerald Tablet"
+        ],
+        "correctAnswer": "The Rosetta Stone",
+        "points": 20
+      },
+      {
+        "_id": "ae4",
+        "text": "True or False: The ancient Egyptian practice of mummification was driven by their belief in an afterlife requiring bodily preservation.",
+        "type": "true-false",
+        "options": [
+          "True",
+          "False"
+        ],
+        "correctAnswer": "True",
+        "points": 20
+      },
+      {
+        "_id": "ae5",
+        "text": "Which major river profoundly influenced the success of Egyptian civilization by depositing nutrient-rich silt via annual flooding?",
+        "type": "multiple-choice",
+        "options": [
+          "Tigris River",
+          "Amazon River",
+          "Yangtze River",
+          "Nile River"
+        ],
+        "correctAnswer": "Nile River",
+        "points": 20
+      }
+    ],
+    "createdAt": "2026-03-29T15:31:02.211Z"
+  }
+}

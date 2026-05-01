@@ -1,0 +1,132 @@
+{
+  "kumarsaran2004@gmail.com": {
+    "_id": "1",
+    "id": "1",
+    "name": "Sarankumar",
+    "email": "kumarsaran2004@gmail.com",
+    "passwordHash": "$2a$10$CQbI4maoqa5DW0rTOQz5fuW7jVYfIE1I0J1uJSIT/s.fo/zn0sLtu",
+    "role": "teacher",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "medium",
+      "ttsSpeed": 1,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false
+    },
+    "bookmarks": [],
+    "createdAt": "2026-03-29T14:53:19.201Z"
+  },
+  "student123@gmail.com": {
+    "_id": "2",
+    "id": "2",
+    "name": "Student",
+    "email": "student123@gmail.com",
+    "passwordHash": "$2a$10$J6Z2kHdOsR43TdrJEmRyDOMApSXlwAnUjlg4/VMrJF1VgpfjU0E4m",
+    "role": "student",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "medium",
+      "ttsSpeed": 1,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false
+    },
+    "bookmarks": [],
+    "createdAt": "2026-03-29T14:54:36.537Z"
+  },
+  "kumar@email.com": {
+    "_id": "3",
+    "id": "3",
+    "name": "kumaf",
+    "email": "kumar@email.com",
+    "passwordHash": "$2a$10$.hdxVo2ds8XloEB1RDj4nO3qs1s975xSf/UbG3XZc9GxzQjbpHC5K",
+    "role": "student",
+    "accessibilityType": "visually-impaired",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "high-contrast",
+      "fontSize": "large",
+      "ttsSpeed": 1.2,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": true,
+      "autoPlayTTS": true
+    },
+    "bookmarks": [],
+    "createdAt": "2026-04-06T15:09:56.010Z"
+  },
+  "visual@123gmail.com": {
+    "_id": "4",
+    "id": "4",
+    "name": "visual",
+    "email": "visual@123gmail.com",
+    "passwordHash": "$2a$10$Ml2W55An8WW2XqsJa3NYLOfWP.c9mX9WV7PbM/mn7EvkD.8APDpVO",
+    "role": "student",
+    "accessibilityType": "visually-impaired",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "high-contrast",
+      "fontSize": "large",
+      "ttsSpeed": 1.2,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": true,
+      "autoPlayTTS": true
+    },
+    "bookmarks": [],
+    "createdAt": "2026-04-06T15:42:00.953Z"
+  },
+  "hearing@gmail.com": {
+    "_id": "5",
+    "id": "5",
+    "name": "hearing",
+    "email": "hearing@gmail.com",
+    "passwordHash": "$2a$10$3VmM2WQBLY.udKh0U2mcxeu.c6kEsqOJrdyas41X8/fw.eER6bRwO",
+    "role": "student",
+    "accessibilityType": "hearing-impaired",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "medium",
+      "ttsSpeed": 1,
+      "captionSize": "large",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false
+    },
+    "bookmarks": [],
+    "createdAt": "2026-04-19T15:41:27.696Z"
+  },
+  "teststudent@test.com": {
+    "_id": "6",
+    "id": "6",
+    "name": "Test Student",
+    "email": "teststudent@test.com",
+    "passwordHash": "$2a$10$603jAOaV8sKASL0M0N.mbOrP.7REaV76Abp6tV/DFrIFbZ3H2FgAS",
+    "role": "student",
+    "accessibilityType": "standard",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "medium",
+      "ttsSpeed": 1,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false
+    },
+    "bookmarks": [],
+    "createdAt": "2026-04-20T16:05:12.811Z"
+  }
+}

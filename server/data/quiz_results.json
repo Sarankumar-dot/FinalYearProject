@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "1",
+    "studentId": "2",
+    "quizId": "quiz_child_lesson_3",
+    "answers": [
+      {
+        "questionId": "q1_child_lesson_3",
+        "answer": "Counting 1 to 5",
+        "isCorrect": true
+      },
+      {
+        "questionId": "q2_child_lesson_3",
+        "answer": "It provides foundational knowledge on the subject.",
+        "isCorrect": true
+      },
+      {
+        "questionId": "q3_child_lesson_3",
+        "answer": "True",
+        "isCorrect": true
+      },
+      {
+        "questionId": "q4_child_lesson_3",
+        "answer": "One",
+        "isCorrect": false
+      },
+      {
+        "questionId": "q5_child_lesson_3",
+        "answer": "True",
+        "isCorrect": true
+      }
+    ],
+    "score": 80,
+    "totalQuestions": 5,
+    "correctCount": 4,
+    "timeTaken": 45,
+    "completedAt": "2026-03-29T15:29:46.653Z"
+  }
+]
