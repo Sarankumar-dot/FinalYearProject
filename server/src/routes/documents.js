@@ -10,7 +10,6 @@ const { createStore } = require("../db");
 
 // Persistent JSON file store: server/data/documents.json
 const memDocuments = createStore("documents");
-let docIdCounter = memDocuments.size + 1;
 
 // Ensure documents directory exists
 const uploadDir = path.join(__dirname, "../..", "uploads", "documents");
@@ -53,7 +52,7 @@ router.post(
           .json({ message: "Please provide an allowed file (PDF or TXT)" });
       }
 
-      const id = String(docIdCounter++);
+      const id = String(Date.now());
       const newDocument = {
         _id: id,
         id: id,

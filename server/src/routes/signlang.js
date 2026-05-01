@@ -19,8 +19,6 @@ if (memSignLang.size === 0) {
   defaults.forEach(d => memSignLang.set(d.keyword, d));
 }
 
-let slIdCounter = 100;
-
 // GET /api/signlang
 router.get('/', auth, async (req, res) => {
   try {
@@ -41,7 +39,7 @@ router.get('/', auth, async (req, res) => {
 // POST /api/signlang
 router.post('/', auth, requireRole('admin'), async (req, res) => {
   try {
-    const id = String(slIdCounter++);
+    const id = String(Date.now());
     const entry = { _id: id, ...req.body, addedBy: req.user._id };
     memSignLang.set(req.body.keyword?.toLowerCase(), entry);
     res.status(201).json(entry);

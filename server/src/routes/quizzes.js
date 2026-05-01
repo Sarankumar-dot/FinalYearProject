@@ -7,8 +7,6 @@ const { createStore, createArrayStore } = require('../db');
 // Persistent stores
 const memQuizzes = createStore('quizzes');
 const memQuizResults = createArrayStore('quiz_results');
-let quizIdCounter = memQuizzes.size + 1;
-let resultIdCounter = 1;
 
 // GET /api/quizzes?lessonId=xxx
 router.get('/', auth, async (req, res) => {
@@ -32,7 +30,7 @@ router.get('/:id', auth, async (req, res) => {
 // POST /api/quizzes
 router.post('/', auth, requireRole('teacher', 'admin'), async (req, res) => {
   try {
-    const id = String(quizIdCounter++);
+    const id = String(Date.now());
     const questions = (req.body.questions || []).map((q, i) => ({
       ...q, _id: `q${id}_${i}`,
     }));
@@ -87,7 +85,7 @@ router.post('/:id/submit', auth, requireRole('student'), async (req, res) => {
     });
     const score = quiz.questions.length > 0 ? Math.round((correct / quiz.questions.length) * 100) : 0;
     const result = {
-      _id: String(resultIdCounter++),
+      _id: String(Date.now() + Math.random().toString().slice(2, 6)),
       studentId: String(req.user._id), quizId: quiz._id,
       answers: graded, score, totalQuestions: quiz.questions.length,
       correctCount: correct, timeTaken: timeTaken || 0,

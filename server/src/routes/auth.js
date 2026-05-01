@@ -9,7 +9,6 @@ const JWT_EXPIRES = process.env.JWT_EXPIRES_IN || "7d";
 
 // Persistent JSON file store: server/data/users.json
 const memUsers = createStore("users");
-let memIdCounter = memUsers.size + 1;
 
 const signToken = (id) =>
   jwt.sign({ id }, JWT_SECRET, { expiresIn: JWT_EXPIRES });
@@ -39,7 +38,7 @@ router.post("/register", async (req, res) => {
       return res.status(409).json({ message: "Email already registered." });
 
     const passwordHash = await bcrypt.hash(password, 10);
-    const id = String(memIdCounter++);
+    const id = String(Date.now() + Math.random().toString().slice(2, 6));
 
     // Set default accessibility preferences based on type
     let accessibilityPrefs = {

@@ -6,7 +6,6 @@ const { createStore } = require('../db');
 
 // Persistent JSON file store: server/data/lessons.json
 const memLessons = createStore('lessons');
-let lessonIdCounter = memLessons.size + 1;
 
 // ─── GET /api/lessons ────────────────────────────────────────────────────────
 router.get('/', auth, async (req, res) => {
@@ -39,7 +38,7 @@ router.get('/:id', auth, async (req, res) => {
 // ─── POST /api/lessons — create ──────────────────────────────────────────────
 router.post('/', auth, requireRole('teacher', 'admin'), async (req, res) => {
   try {
-    const id = String(lessonIdCounter++);
+    const id = String(Date.now());
     const lesson = {
       _id: id, id,
       ...req.body,
