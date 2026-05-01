@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { drawSkeleton, interpolateFrames, drawWordLabel, clearCanvas } from '../utils/signAvatarRenderer';
 import { buildTimeline, getWordCount } from '../utils/signDictionary';
-import { FaPause, FaPlay, FaTachometerAlt } from 'react-icons/fa';
+import { FaPause, FaPlay, FaTachometerAlt, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 
 /**
  * SignLanguageAvatar — renders a 2D skeleton that signs the given text.
@@ -25,6 +25,7 @@ export default function SignLanguageAvatar({ text, height = 400, onClose }) {
   const [currentFrame, setCurrentFrame] = useState(0);
   const [canvasWidth, setCanvasWidth] = useState(640);
   const [canvasHeight, setCanvasHeight] = useState(typeof height === 'number' ? height : 400);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const frameRef = useRef(0);
   const lastTimeRef = useRef(0);
@@ -34,6 +35,31 @@ export default function SignLanguageAvatar({ text, height = 400, onClose }) {
   // Keep refs in sync with state
   useEffect(() => { playingRef.current = playing; }, [playing]);
   useEffect(() => { speedRef.current = speed; }, [speed]);
+
+  // Audio Speech Handler
+  const handleSpeak = useCallback(() => {
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    } else {
+      if (!text) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      // Try to match speaking rate to signing speed
+      utterance.rate = speedRef.current > 1.5 ? 1.5 : (speedRef.current < 0.5 ? 0.5 : speedRef.current);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+      window.speechSynthesis.speak(utterance);
+      setIsSpeaking(true);
+    }
+  }, [isSpeaking, text]);
+
+  // Cleanup speech on unmount
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+    };
+  }, []);
 
   // Responsive canvas width and height
   useEffect(() => {
@@ -181,6 +207,22 @@ export default function SignLanguageAvatar({ text, height = 400, onClose }) {
           aria-label={playing ? 'Pause avatar' : 'Play avatar'}
         >
           {playing ? <FaPause /> : <FaPlay />}
+        </button>
+
+        {/* Audio/TTS */}
+        <button
+          onClick={handleSpeak}
+          style={{
+            background: isSpeaking ? 'rgba(239,68,68,0.3)' : 'rgba(16,185,129,0.3)',
+            border: `1px solid ${isSpeaking ? 'rgba(239,68,68,0.5)' : 'rgba(16,185,129,0.5)'}`,
+            borderRadius: 8, color: '#fff', padding: '0.4rem 0.6rem',
+            cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem',
+            fontSize: '0.75rem', fontWeight: 600,
+          }}
+          aria-label={isSpeaking ? 'Stop audio' : 'Listen aloud'}
+          title="Listen to text"
+        >
+          {isSpeaking ? <FaVolumeMute /> : <FaVolumeUp />}
         </button>
 
         {/* Speed */}
