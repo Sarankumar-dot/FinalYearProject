@@ -16,8 +16,8 @@ export default function SignLangLibrary() {
   const [editing, setEditing] = useState(null);
   const [error, setError] = useState('');
 
-  const load = () => api.get('/signlang').then(r=>setEntries(r.data)).catch(console.error).finally(()=>setLoading(false));
-  useEffect(load, []);
+  const load = () => api.get('/signlang').then(r=>setEntries(Array.isArray(r.data) ? r.data : [])).catch(console.error).finally(()=>setLoading(false));
+  useEffect(() => { load(); }, []);
 
   const seedSamples = async () => {
     for (const s of SAMPLES) {

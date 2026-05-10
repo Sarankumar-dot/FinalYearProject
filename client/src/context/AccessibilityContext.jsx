@@ -27,6 +27,9 @@ const DEFAULTS = {
   autoAnnounceElements: false,
   mouseHoverGuidance: false,
   ttsVoiceURI: "",
+  voiceControlEnabled: false,
+  wakeWordEnabled: true,
+  voiceVolume: 1.0,
 };
 
 export function AccessibilityProvider({ children }) {
@@ -44,6 +47,8 @@ export function AccessibilityProvider({ children }) {
           autoAnnounceElements: true,
           mouseHoverGuidance: true,
           screenReaderMode: true,
+          voiceControlEnabled: true,
+          wakeWordEnabled: true,
         };
       }
 
@@ -54,6 +59,7 @@ export function AccessibilityProvider({ children }) {
   });
   const [announcement, setAnnouncement] = useState("");
   const [voiceNav, setVoiceNav] = useState(null);
+  const [lastTTSText, setLastTTSText] = useState("");
 
   // Auto-enable voice features when user type changes to visually impaired
   useEffect(() => {
@@ -65,6 +71,8 @@ export function AccessibilityProvider({ children }) {
         autoAnnounceElements: true,
         mouseHoverGuidance: true,
         screenReaderMode: true,
+        voiceControlEnabled: true,
+        wakeWordEnabled: true,
       };
       setPrefs(updatedPrefs);
       localStorage.setItem("sas_a11y", JSON.stringify(updatedPrefs));
@@ -86,6 +94,8 @@ export function AccessibilityProvider({ children }) {
       try {
         window.speechSynthesis.cancel();
         if (!text || typeof text !== 'string') return;
+        
+        setLastTTSText(text);
         
         // Chunk long text to prevent SpeechSynthesis limits on large PDFs
         const chunkSize = 200;
@@ -304,6 +314,7 @@ export function AccessibilityProvider({ children }) {
         announcePage,
         announceNav,
         voiceNav,
+        lastTTSText,
       }}
     >
       {/* Screen reader announcements */}

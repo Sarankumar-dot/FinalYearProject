@@ -128,5 +128,78 @@
     },
     "bookmarks": [],
     "createdAt": "2026-04-20T16:05:12.811Z"
+  },
+  "admin@gmail.com": {
+    "_id": "17779509684424573",
+    "id": "17779509684424573",
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "passwordHash": "$2a$10$.LpsUC2UT6hzTEU.T/.fsOdxpYN/XLUtM1cq1fnlfBzeonpqz/ofC",
+    "role": "admin",
+    "accessibilityType": "standard",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "small",
+      "ttsSpeed": 1.2,
+      "captionSize": "medium",
+      "captionColour": "#912727",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false,
+      "screenReaderMode": true,
+      "skipLinksEnabled": true,
+      "focusIndicator": "standard",
+      "voiceGuidedNav": true,
+      "autoAnnounceElements": true,
+      "mouseHoverGuidance": true,
+      "ttsVoiceURI": "Microsoft Mark - English (United States)"
+    },
+    "bookmarks": [],
+    "createdAt": "2026-05-05T03:16:08.442Z"
+  },
+  "testhi@test.com": {
+    "_id": "17784248783809740",
+    "id": "17784248783809740",
+    "name": "Test Student HI",
+    "email": "testhi@test.com",
+    "passwordHash": "$2a$10$M0IHt6uOnjTpqF90n/xWs.eNyT9vJVeOFUatOh7/g/pWq37I3M7/K",
+    "role": "student",
+    "accessibilityType": "hearing-impaired",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "dark",
+      "fontSize": "medium",
+      "ttsSpeed": 1,
+      "captionSize": "large",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": false,
+      "autoPlayTTS": false
+    },
+    "bookmarks": [],
+    "createdAt": "2026-05-10T14:54:38.380Z"
+  },
+  "vi_new@example.com": {
+    "_id": "17784272683533185",
+    "id": "17784272683533185",
+    "name": "VI Student",
+    "email": "vi_new@example.com",
+    "passwordHash": "$2a$10$IB/n.Q51MtAs/OWUjI7OqeHa4cApr8lvLI9zhaXsPrcIudrbvFEhy",
+    "role": "student",
+    "accessibilityType": "visually-impaired",
+    "isActive": true,
+    "accessibilityPrefs": {
+      "theme": "high-contrast",
+      "fontSize": "large",
+      "ttsSpeed": 1.2,
+      "captionSize": "medium",
+      "captionColour": "#FFFFFF",
+      "captionBg": "rgba(0,0,0,0.75)",
+      "keyboardNavMode": true,
+      "autoPlayTTS": true
+    },
+    "bookmarks": [],
+    "createdAt": "2026-05-10T15:34:28.356Z"
   }
 }

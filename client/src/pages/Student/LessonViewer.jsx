@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../../api/axios';
 import { useAccessibility } from '../../context/AccessibilityContext';
+import { useVoiceControl } from '../../context/VoiceControlContext';
 import TTSPlayer from '../../components/TTSPlayer';
 import SignLangPanel from '../../components/SignLangPanel';
 import SignLanguageAvatar from '../../components/SignLanguageAvatar';
@@ -29,10 +30,17 @@ function toYouTubeEmbed(url) {
 
 function isYouTubeUrl(url) { return url && (url.includes('youtube.com') || url.includes('youtu.be')); }
 
+const getMediaUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('/')) return `http://localhost:5000${url}`;
+  return url;
+};
+
 export default function LessonViewer() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { prefs } = useAccessibility();
+  const vc = useVoiceControl();
 
   const [lesson, setLesson] = useState(null);
   const [quiz, setQuiz] = useState(null);
@@ -63,6 +71,22 @@ export default function LessonViewer() {
     load();
     return () => { if (captionTimer.current) clearInterval(captionTimer.current); };
   }, [id]);
+
+  // Register page context for voice control
+  useEffect(() => {
+    if (vc.registerPageContext && lesson) {
+      vc.registerPageContext({
+        pageName: `Lesson: ${lesson.title}`,
+        lessonData: lesson,
+        videoRef,
+      });
+    }
+    return () => {
+      if (vc.unregisterPageContext) {
+        vc.unregisterPageContext(['pageName', 'lessonData', 'videoRef']);
+      }
+    };
+  }, [lesson, vc.registerPageContext, vc.unregisterPageContext]);
 
   // Caption ticker for non-YouTube videos
   const captionSentences = lesson?.transcript
@@ -109,6 +133,7 @@ export default function LessonViewer() {
   );
 
   const embedUrl = lesson.fileUrl ? toYouTubeEmbed(lesson.fileUrl) : null;
+  const mediaUrl = lesson.fileUrl ? getMediaUrl(lesson.fileUrl) : null;
   const isYT = !!embedUrl;
 
   return (
@@ -210,7 +235,7 @@ export default function LessonViewer() {
               {/* Direct video element */}
               <video
                 ref={videoRef}
-                src={lesson.fileUrl}
+                src={mediaUrl}
                 controls
                 style={{
                   width: '100%', borderRadius: 12, maxHeight: 480, background: '#000',
@@ -292,7 +317,7 @@ export default function LessonViewer() {
               <p style={{ color: 'var(--color-text-muted)', marginBottom: '1rem', fontSize: '0.875rem' }}>{lesson.description}</p>
               {lesson.fileUrl ? (
                 <audio controls style={{ width: '100%' }} aria-label={`Audio: ${lesson.title}`}>
-                  <source src={lesson.fileUrl} />
+                  <source src={mediaUrl} />
                 </audio>
               ) : (
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem' }}>Audio file URL not provided.</p>
@@ -305,14 +330,28 @@ export default function LessonViewer() {
             <div className="card" style={{ marginBottom: '1.5rem' }}>
               {lesson.fileUrl ? (
                 <>
-                  <iframe
-                    src={`https://docs.google.com/viewer?url=${encodeURIComponent(lesson.fileUrl)}&embedded=true`}
+                  <object
+                    data={mediaUrl}
+                    type="application/pdf"
                     style={{ width: '100%', height: 500, border: 'none', borderRadius: 8 }}
-                    title={lesson.title}
                     aria-label={`PDF document: ${lesson.title}`}
-                  />
+                  >
+                    <iframe
+                      src={mediaUrl}
+                      style={{ width: '100%', height: 500, border: 'none', borderRadius: 8 }}
+                      title={lesson.title}
+                      aria-label={`PDF document: ${lesson.title}`}
+                    >
+                      <p style={{ padding: '1rem', textAlign: 'center', color: 'var(--color-text-muted)' }}>
+                        Your browser doesn't support PDF viewing.{' '}
+                        <a href={mediaUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)' }}>
+                          Click here to download the PDF
+                        </a>.
+                      </p>
+                    </iframe>
+                  </object>
                   <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem' }}>
-                    <a href={lesson.fileUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: '0.85rem' }}>
+                    <a href={mediaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ fontSize: '0.85rem' }}>
                       <FaDownload /> Open PDF
                     </a>
                   </div>
@@ -330,7 +369,7 @@ export default function LessonViewer() {
           {lesson.type === 'image' && (
             <div className="card" style={{ marginBottom: '1.5rem' }}>
               {lesson.fileUrl && (
-                <img src={lesson.fileUrl} alt={lesson.altText || lesson.title}
+                <img src={mediaUrl} alt={lesson.altText || lesson.title}
                   style={{ width: '100%', borderRadius: 8, objectFit: 'contain', maxHeight: 450 }} />
               )}
               {lesson.altText && (

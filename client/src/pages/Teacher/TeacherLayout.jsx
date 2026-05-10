@@ -9,6 +9,7 @@ import {
   FaCog,
   FaSignOutAlt,
   FaUniversalAccess,
+  FaHandsHelping,
 } from "react-icons/fa";
 import AccessibilityPanel from "../../components/AccessibilityPanel";
 import ThemeToggle from "../../components/ThemeToggle";
@@ -20,6 +21,7 @@ const navLinks = [
   { to: "/teacher/documents", label: "Documents", icon: <FaBook />, handSign: "✋" },
   { to: "/teacher/analytics", label: "Analytics", icon: <FaChartBar />, handSign: "🖖" },
   { to: "/teacher/settings", label: "Settings", icon: <FaCog />, handSign: "🤏" },
+  { to: "/teacher/sign-communicator", label: "Sign Communicator", icon: <FaHandsHelping />, handSign: "🤟" },
 ];
 export default function TeacherLayout() {
   const { user, logout } = useAuth();

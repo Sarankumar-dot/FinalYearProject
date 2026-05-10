@@ -34,6 +34,7 @@ import SignLangLibrary from "./pages/Admin/SignLangLibrary";
 
 // Shared
 import AccessibilitySettings from "./pages/Shared/AccessibilitySettings";
+import SignLanguageCommunicator from "./pages/Shared/SignLanguageCommunicator";
 
 function ProtectedRoute({ children, requiredRole }) {
   const { user } = useAuth();
@@ -82,6 +83,7 @@ export default function App() {
             <Route path="progress" element={<StudentProgress />} />
             <Route path="settings" element={<AccessibilitySettings />} />
             <Route path="documents" element={<DocumentViewer />} />
+            <Route path="sign-communicator" element={<SignLanguageCommunicator />} />
           </Route>
 
           {/* Teacher */}
@@ -100,6 +102,7 @@ export default function App() {
             <Route path="analytics" element={<TeacherAnalytics />} />
             <Route path="settings" element={<AccessibilitySettings />} />
             <Route path="documents" element={<DocumentManager />} />
+            <Route path="sign-communicator" element={<SignLanguageCommunicator />} />
           </Route>
 
           {/* Admin */}

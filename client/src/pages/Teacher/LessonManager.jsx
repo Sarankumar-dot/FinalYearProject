@@ -9,9 +9,9 @@ export default function LessonManager() {
   const navigate = useNavigate();
 
   const load = () => {
-    api.get('/lessons').then(r => setLessons(r.data)).catch(console.error).finally(() => setLoading(false));
+    api.get('/lessons').then(r => setLessons(Array.isArray(r.data) ? r.data : [])).catch(console.error).finally(() => setLoading(false));
   };
-  useEffect(load, []);
+  useEffect(() => { load(); }, []);
 
   const handleDelete = async (id, title) => {
     if (!confirm(`Delete "${title}"? This cannot be undone.`)) return;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useAccessibility } from "../../context/AccessibilityContext";
+import { VoiceControlProvider } from "../../context/VoiceControlContext";
 import {
   FaHome,
   FaBook,
@@ -11,9 +12,11 @@ import {
   FaUniversalAccess,
   FaBars,
   FaTimes,
+  FaHandsHelping,
 } from "react-icons/fa";
 import AccessibilityPanel from "../../components/AccessibilityPanel";
 import ThemeToggle from "../../components/ThemeToggle";
+import VoiceControlWidget from "../../components/VoiceControlWidget";
 
 const navLinks = [
   { to: "/student", label: "Dashboard", icon: <FaHome />, end: true, handSign: "🤙" },
@@ -21,6 +24,7 @@ const navLinks = [
   { to: "/student/documents", label: "Documents", icon: <FaBook />, handSign: "✋" },
   { to: "/student/progress", label: "My Progress", icon: <FaChartBar />, handSign: "☝️" },
   { to: "/student/settings", label: "Settings", icon: <FaCog />, handSign: "🤏" },
+  { to: "/student/sign-communicator", label: "Sign Communicator", icon: <FaHandsHelping />, handSign: "🤟", requireHearingImpaired: true },
 ];
 
 export default function StudentLayout() {
@@ -125,7 +129,9 @@ export default function StudentLayout() {
 
       {/* Nav links */}
       <nav aria-label="Student navigation" style={{ flex: 1 }}>
-        {navLinks.map((l) => (
+        {navLinks
+          .filter((l) => !l.requireHearingImpaired || user?.accessibilityType === 'hearing-impaired')
+          .map((l) => (
           <NavLink
             key={l.to}
             to={l.to}
@@ -255,7 +261,14 @@ export default function StudentLayout() {
       `}</style>
 
       <main className="main-content" id="main-content">
-        <Outlet />
+        {user?.accessibilityType === 'visually-impaired' ? (
+          <VoiceControlProvider>
+            <Outlet />
+            <VoiceControlWidget />
+          </VoiceControlProvider>
+        ) : (
+          <Outlet />
+        )}
       </main>
 
       {showA11y && <AccessibilityPanel onClose={() => setShowA11y(false)} />}

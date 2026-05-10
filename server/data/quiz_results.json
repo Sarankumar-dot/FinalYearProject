@@ -35,5 +35,42 @@
     "correctCount": 4,
     "timeTaken": 45,
     "completedAt": "2026-03-29T15:29:46.653Z"
+  },
+  {
+    "_id": "17784288247245060",
+    "studentId": "4",
+    "quizId": "quiz_1774796027469",
+    "answers": [
+      {
+        "questionId": "sq1",
+        "answer": "Light",
+        "isCorrect": true
+      },
+      {
+        "questionId": "sq2",
+        "answer": "Oxygen",
+        "isCorrect": true
+      },
+      {
+        "questionId": "sq3",
+        "answer": "To absorb energy from light",
+        "isCorrect": true
+      },
+      {
+        "questionId": "sq4",
+        "answer": "False",
+        "isCorrect": true
+      },
+      {
+        "questionId": "sq5",
+        "answer": "Carbon Dioxide and Water",
+        "isCorrect": true
+      }
+    ],
+    "score": 100,
+    "totalQuestions": 5,
+    "correctCount": 5,
+    "timeTaken": 157,
+    "completedAt": "2026-05-10T16:00:24.724Z"
   }
 ]

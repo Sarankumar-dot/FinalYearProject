@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import { useAccessibility } from "../context/AccessibilityContext";
-import {
-  FaTimes,
-  FaVolumeUp,
-  FaFont,
-  FaPalette,
-  FaKeyboard,
-  FaClosedCaptioning,
-  FaEye,
-} from "react-icons/fa";
+import { FaTimes, FaVolumeUp, FaFont, FaPalette, FaKeyboard, FaClosedCaptioning, FaEye, FaMicrophone } from "react-icons/fa";
+import { useAuth } from "../context/AuthContext";
+import VoiceControlSettings from "./VoiceControlSettings";
 
 const themes = [
   { value: "dark", label: "🌑 Dark", desc: "Dark background" },
@@ -27,6 +21,7 @@ const fontSizes = [
 ];
 
 export default function AccessibilityPanel({ onClose }) {
+  const { user } = useAuth();
   const { prefs, update, announce } = useAccessibility();
   const [expandedSection, setExpandedSection] = useState(null);
 
@@ -714,6 +709,41 @@ export default function AccessibilityPanel({ onClose }) {
             </div>
           )}
         </section>
+
+        {/* Full Voice Control (VI only) */}
+        {user?.accessibilityType === "visually-impaired" && (
+          <section style={{ marginBottom: "1.5rem" }}>
+            <button
+              onClick={() => toggleSection("fullVoiceControl")}
+              style={{
+                width: "100%",
+                padding: "0.625rem 0.875rem",
+                borderRadius: 8,
+                border: "none",
+                background: "var(--color-surface2)",
+                color: "var(--color-text)",
+                cursor: "pointer",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+              aria-expanded={expandedSection === "fullVoiceControl"}
+              aria-label="Full voice control settings"
+            >
+              <span><FaMicrophone style={{ marginRight: 6 }} /> Full Voice Control</span>
+              <span>{expandedSection === "fullVoiceControl" ? "▼" : "▶"}</span>
+            </button>
+
+            {expandedSection === "fullVoiceControl" && (
+              <div style={{ marginTop: "0.75rem", padding: "0.5rem" }}>
+                <VoiceControlSettings />
+              </div>
+            )}
+          </section>
+        )}
 
         {/* Keyboard Shortcuts Info */}
         <div

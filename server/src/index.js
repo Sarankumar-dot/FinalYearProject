@@ -27,6 +27,7 @@ app.use("/api/users", require("./routes/users"));
 app.use("/api/signlang", require("./routes/signlang"));
 app.use("/api/signdict", require("./routes/signdict"));
 app.use("/api/documents", require("./routes/documents"));
+app.use("/api/conversations", require("./routes/conversations"));
 
 app.get("/", (req, res) =>
   res.json({ message: "Bridging the Gap API is running ✅" }),

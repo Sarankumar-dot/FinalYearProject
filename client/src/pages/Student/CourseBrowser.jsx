@@ -11,7 +11,9 @@ function getThumbnailUrl(lesson) {
   
   if (lesson.type === 'video' && lesson.fileUrl) {
     try {
-      const u = new URL(lesson.fileUrl);
+      // Handle local /uploads/ URLs safely
+      const urlStr = lesson.fileUrl.startsWith('/') ? `http://localhost:5000${lesson.fileUrl}` : lesson.fileUrl;
+      const u = new URL(urlStr);
       let v = null;
       if (u.hostname.includes('youtube.com')) {
         v = u.searchParams.get('v');

@@ -13,9 +13,9 @@ export default function UserManagement() {
     const params = new URLSearchParams();
     if (roleFilter) params.set('role', roleFilter);
     if (search) params.set('search', search);
-    api.get(`/users?${params}`).then(r=>setUsers(r.data)).catch(console.error).finally(()=>setLoading(false));
+    api.get(`/users?${params}`).then(r=>setUsers(Array.isArray(r.data) ? r.data : [])).catch(console.error).finally(()=>setLoading(false));
   };
-  useEffect(load, [search, roleFilter]);
+  useEffect(() => { load(); }, [search, roleFilter]);
 
   const changeRole = async (userId, newRole) => {
     await api.put(`/users/${userId}`, { role: newRole }).catch(console.error);

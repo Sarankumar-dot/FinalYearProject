@@ -19,7 +19,7 @@
     ],
     "teacherId": "1",
     "isPublished": true,
-    "viewCount": 71,
+    "viewCount": 99,
     "createdAt": "2026-03-29T14:53:47.469Z"
   },
   "1774796028995": {
@@ -368,5 +368,23 @@
     "isPublished": true,
     "viewCount": 0,
     "createdAt": "2026-04-06T14:56:38.941Z"
+  },
+  "1777950698828": {
+    "_id": "1777950698828",
+    "id": "1777950698828",
+    "title": "Heart",
+    "description": "this is a picture of lungs",
+    "subject": "General",
+    "type": "image",
+    "fileUrl": "/uploads/1777950698802-503723732.jpeg",
+    "thumbnailUrl": "",
+    "transcript": "",
+    "altText": "this is a picture of lungs",
+    "textContent": "",
+    "tags": [],
+    "teacherId": "1",
+    "isPublished": true,
+    "viewCount": 4,
+    "createdAt": "2026-05-05T03:11:38.828Z"
   }
 }

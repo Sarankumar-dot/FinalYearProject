@@ -2,12 +2,14 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../api/axios';
 import { useAccessibility } from '../../context/AccessibilityContext';
+import { useVoiceControl } from '../../context/VoiceControlContext';
 import { FaVolumeUp, FaArrowRight, FaArrowLeft, FaTrophy } from 'react-icons/fa';
 
 export default function QuizPlayer() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { speak, prefs } = useAccessibility();
+  const vc = useVoiceControl();
   const [quiz, setQuiz] = useState(null);
   const [loading, setLoading] = useState(true);
   const [current, setCurrent] = useState(0);
@@ -35,16 +37,6 @@ export default function QuizPlayer() {
     }
   }, [current]);
 
-  useEffect(() => {
-    api.get(`/quizzes/${id}`).then(r => {
-      setQuiz(r.data);
-      // Auto-read first question for accessibility
-      if (prefs.autoPlayTTS && r.data.questions?.[0]) {
-        speak(r.data.questions[0].text);
-      }
-    }).catch(console.error).finally(() => setLoading(false));
-  }, [id]);
-
   const readQuestion = useCallback((q) => {
     if (!q) return;
     let text = `Question: ${q.text}. `;
@@ -56,11 +48,21 @@ export default function QuizPlayer() {
     speak(text);
   }, [speak]);
 
+  useEffect(() => {
+    api.get(`/quizzes/${id}`).then(r => {
+      setQuiz(r.data);
+      // Auto-read first question for accessibility
+      if ((prefs.autoPlayTTS || vc.isEnabled) && r.data.questions?.[0]) {
+        setTimeout(() => readQuestion(r.data.questions[0]), 1000);
+      }
+    }).catch(console.error).finally(() => setLoading(false));
+  }, [id, prefs.autoPlayTTS, vc.isEnabled, readQuestion]);
+
   const goNext = () => {
     const nextIdx = current + 1;
     if (nextIdx < quiz.questions.length) {
       setCurrent(nextIdx);
-      if (prefs.autoPlayTTS) readQuestion(quiz.questions[nextIdx]);
+      if (prefs.autoPlayTTS || vc.isEnabled) readQuestion(quiz.questions[nextIdx]);
     }
   };
 
@@ -68,7 +70,7 @@ export default function QuizPlayer() {
     const prevIdx = current - 1;
     if (prevIdx >= 0) {
       setCurrent(prevIdx);
-      if (prefs.autoPlayTTS) readQuestion(quiz.questions[prevIdx]);
+      if (prefs.autoPlayTTS || vc.isEnabled) readQuestion(quiz.questions[prevIdx]);
     }
   };
 
@@ -91,6 +93,43 @@ export default function QuizPlayer() {
       console.error(e);
     }
   };
+
+  // Register page context for voice control
+  useEffect(() => {
+    if (vc.registerPageContext && quiz) {
+      vc.registerPageContext({
+        pageName: `Quiz: ${quiz.title}`,
+        quizState: {
+          currentIndex: current,
+          totalQuestions: quiz.questions?.length || 0,
+          currentQuestion: quiz.questions?.[current],
+          readQuestion: () => readQuestion(quiz.questions?.[current]),
+          selectOption: (optIndex) => {
+            const q = quiz.questions?.[current];
+            if (q?.type === 'multiple-choice' && q.options?.[optIndex]) {
+              handleAnswer(String(q._id), q.options[optIndex]);
+              return q.options[optIndex];
+            }
+            return null;
+          },
+          selectTrueFalse: (opt) => {
+            const q = quiz.questions?.[current];
+            if (q?.type === 'true-false') {
+              handleAnswer(String(q._id), opt);
+            }
+          },
+          goNext,
+          goPrev,
+          submitQuiz: handleSubmit,
+        },
+      });
+    }
+    return () => {
+      if (vc.unregisterPageContext) {
+        vc.unregisterPageContext(['pageName', 'quizState']);
+      }
+    };
+  }, [quiz, current, answers, vc.registerPageContext, vc.unregisterPageContext]);
 
   if (loading) return <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--color-text-muted)' }}>Loading quiz...</div>;
   if (!quiz) return <div style={{ padding: '2rem' }}>Quiz not found.</div>;
